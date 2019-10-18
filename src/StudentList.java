@@ -8,48 +8,48 @@ public class StudentList
 //		Check arguments for length
 		if(args.length != 1)
 		{
-			System.out.println("Usage: java StudentList [Arguments] \n a - All Students\n r - Random Students\n c - Count Students \n + Adds New");
+			System.out.println(Constants.MSGHELP);
 			return;
 		}
 //		Read From File
 		String readFileContents = readFromFile(Constants.DATAFILENAME);
-		String fileContent[] = readFileContents.split(",");
+		String fileContent[] = readFileContents.split(Constants.DATASEPERATOR);
 //		Check arguments
-		if(args[0].equals("a"))
+		if(args[0].equals(Constants.SHOWALL))
 		{
 			for(String content : fileContent)
 			{
 				System.out.println(content);
 			}
 		}
-		else if(args[0].equals("r")) 
+		else if(args[0].equals(Constants.SHOWRND))
 		{
 			Random randomValue = new Random();
-			int randomInteger = randomValue.nextInt(5);
+			int randomInteger = randomValue.nextInt(fileContent.length);
 			System.out.println(fileContent[randomInteger]);
 
 		}
-		else if(args[0].contains("+"))
+		else if(args[0].contains(Constants.ADDTOFILE))
 		{
-			writeTofile("students.txt", args[0].substring(1));
+			writeTofile(Constants.DATAFILENAME, args[0].substring(1));
 		}
-		else if(args[0].contains("?")) 
+		else if(args[0].contains(Constants.SEARCHFILE))
 		{
 			boolean done = false;
 			String searchData = args[0].substring(1);
 
 			for(int idx = 0; idx<fileContent.length && !done; idx++)
 			{
-				String compareData = fileContent[idx].trim();
+				String compareData = fileContent[idx];
 				if(compareData.equals(searchData))
 				{
-					System.out.println("We found it!");
+					System.out.println(Constants.MSGSEARCH);
 					done=true;
 				}
 			}
 
 		}
-		else if(args[0].contains("c")) 
+		else if(args[0].contains(Constants.COUNTFILE))
 		{
 			//String countString = fileStream.readLine();
 			char countValue[] = readFileContents.toCharArray();
@@ -59,17 +59,20 @@ public class StudentList
 			{
 				if(currentCount ==' ')
 				{
-					if (!in_word) {	count++; in_word =true;	}
+					if (!in_word)
+					{
+						count++; in_word = true;
+					}
 					else { in_word=false;}
 				}
 			}
-			System.out.println(count +" word(s) found " + countValue.length);
+			System.out.println(count + Constants.MSGSEARCHRESULT + countValue.length);
 		}
 	}
 
 	public static String readFromFile(String fileName)
 	{
-		System.out.println("Loading data ...");
+		System.out.println(Constants.MSGLOADSTART);
 		String fileData = null;
 		try {
 			BufferedReader fileReader = new BufferedReader(
@@ -81,30 +84,29 @@ public class StudentList
 
 		}
 
-		System.out.println("Data Loaded.");
+		System.out.println(Constants.MSGLOADEND);
 		return fileData;
 	}
 	public static void writeTofile(String fileName, String newStudent)
 	{
-		System.out.println("Loading data ...");
+		System.out.println(Constants.MSGLOADSTART);
 		try
 		{
 			BufferedWriter fileStream = new BufferedWriter(
-					new FileWriter("students.txt", true));
+					new FileWriter(fileName, true));
 			String addData = newStudent;
 			Date dateValue = new Date();
-			String df = "dd/mm/yyyy-hh:mm:ss a";
+			String df = Constants.DATEFORMAT;
 			DateFormat dateFormatValue = new SimpleDateFormat(df);
 			String formatedDateValue= dateFormatValue.format(dateValue);
-			//fileStream.write(", "+addData+"\nList last updated on "+formatedDateValue);
-			fileStream.write(", "+addData);
+			fileStream.write(Constants.DATASEPERATOR+addData);
 			fileStream.close();
 		}
 		catch (Exception error)
 		{
 
 		}
-		System.out.println("Data Loaded.");
+		System.out.println(Constants.MSGLOADEND);
 		return;
 	}
 }
