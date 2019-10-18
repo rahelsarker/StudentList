@@ -42,7 +42,7 @@ public class StudentList
 			String searchData = args[0].substring(1);
 			for(String searchElement : fileContent)
 			{
-				if(searchData == searchElement)
+				if(searchElement.trim().equals(searchData))
 				{
 					System.out.println(Constants.MSGSEARCH);
 					searchedItemFound=true;

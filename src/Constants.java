@@ -6,7 +6,7 @@ public final class Constants
     public static final String ADDTOFILE = "+";
     public static final String SEARCHFILE = "?";
     public static final String COUNTFILE = "c";
-    public static final String DATASEPERATOR = " ,";
+    public static final String DATASEPERATOR = ",";
     public static final String MSGHELP = "Usage: java StudentList [Arguments] \n a - All Students\n r - Random Students\n c - Count Students \n + Adds New";
     public static final String MSGSEARCH = "The Searched Item was Found in the Students List.";
     public static final String MSGSEARCHRESULT = " word(s) found ";
