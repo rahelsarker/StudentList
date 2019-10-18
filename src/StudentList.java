@@ -38,9 +38,9 @@ public class StudentList
 			boolean done = false;
 			String searchData = args[0].substring(1);
 
-			for(int idx = 0; idx<fileContent.length && !done; idx++)
+			for(int itemCounter = 0; itemCounter<fileContent.length && !done; itemCounter++)
 			{
-				String compareData = fileContent[idx];
+				String compareData = fileContent[itemCounter];
 				if(compareData.equals(searchData))
 				{
 					System.out.println(Constants.MSGSEARCH);
@@ -53,20 +53,20 @@ public class StudentList
 		{
 			//String countString = fileStream.readLine();
 			char countValue[] = readFileContents.toCharArray();
-			boolean in_word = false;
-			int count=0;
+			boolean presentInWords = false;
+			int countCharacters=0;
 			for(char currentCount:countValue)
 			{
 				if(currentCount ==' ')
 				{
-					if (!in_word)
+					if (!presentInWords)
 					{
-						count++; in_word = true;
+						countCharacters++; presentInWords = true;
 					}
-					else { in_word=false;}
+					else { presentInWords=false;}
 				}
 			}
-			System.out.println(count + Constants.MSGSEARCHRESULT + countValue.length);
+			System.out.println(countCharacters + Constants.MSGSEARCHRESULT + countValue.length);
 		}
 	}
 
@@ -79,7 +79,7 @@ public class StudentList
 					new InputStreamReader(
 							new FileInputStream(fileName)));
 			fileData = fileReader.readLine();
-		} catch (Exception e)
+		} catch (Exception error)
 		{
 
 		}
