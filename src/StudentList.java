@@ -14,7 +14,7 @@ public class StudentList
 //		Read From File
 		String readFileContents = readFromFile(Constants.DATAFILENAME);
 		String fileContent[] = readFileContents.split(Constants.DATASEPERATOR);
-//		Check arguments
+//		Show all records operation
 		if(args[0].equals(Constants.SHOWALL))
 		{
 			for(String content : fileContent)
@@ -22,6 +22,7 @@ public class StudentList
 				System.out.println(content);
 			}
 		}
+//		Thea random select operation
 		else if(args[0].equals(Constants.SHOWRND))
 		{
 			Random randomValue = new Random();
@@ -29,10 +30,12 @@ public class StudentList
 			System.out.println(fileContent[randomInteger]);
 
 		}
+//		The add operation
 		else if(args[0].contains(Constants.ADDTOFILE))
 		{
 			writeTofile(Constants.DATAFILENAME, args[0].substring(1));
 		}
+//		The search operation
 		else if(args[0].contains(Constants.SEARCHFILE))
 		{
 			boolean searchedItemFound = false;
@@ -48,9 +51,9 @@ public class StudentList
 			}
 
 		}
+//		The count operation
 		else if(args[0].contains(Constants.COUNTFILE))
 		{
-			//String countString = fileStream.readLine();
 			char countValue[] = readFileContents.toCharArray();
 			boolean presentInWords = false;
 			int countCharacters=0;
@@ -74,7 +77,7 @@ public class StudentList
 			return;
 		}
 	}
-
+//	Read file method
 	public static String readFromFile(String fileName)
 	{
 		System.out.println(Constants.MSGLOADSTART);
@@ -88,10 +91,10 @@ public class StudentList
 		{
 
 		}
-
 		System.out.println(Constants.MSGLOADEND);
 		return fileData;
 	}
+//	Write file method
 	public static void writeTofile(String fileName, String newStudent)
 	{
 		System.out.println(Constants.MSGLOADSTART);
