@@ -5,7 +5,12 @@ public class StudentList
 {
 	public static void main(String[] args)
 	{
-
+//		Check arguments for length
+		if(args.length != 1)
+		{
+			System.out.println("Usage: java StudentList [Arguments] \n a - All Students\n r - Random Students\n c - Count Students \n + Adds New");
+			return;
+		}
 //		Check arguments
 		if(args[0].equals("a"))
 		{
