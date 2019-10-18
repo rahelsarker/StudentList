@@ -13,5 +13,6 @@ public final class Constants
     public static final String MSGLOADSTART = "Loading data ...";
     public static final String MSGLOADEND ="Data Loaded.";
     public static final String DATEFORMAT = "dd/mm/yyyy-hh:mm:ss a";
+    public static final int MINARGLN = 1;
 
 }

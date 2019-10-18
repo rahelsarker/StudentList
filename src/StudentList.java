@@ -6,7 +6,7 @@ public class StudentList
 	public static void main(String[] args)
 	{
 //		Check arguments for length
-		if(args.length != 1)
+		if(args.length != Constants.MINARGLN)
 		{
 			System.out.println(Constants.MSGHELP);
 			return;
