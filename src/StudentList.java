@@ -67,6 +67,12 @@ public class StudentList
 			}
 			System.out.println(countCharacters + Constants.MSGSEARCHRESULT + countValue.length);
 		}
+//		Case for invalid arguments
+		else
+		{
+			System.out.println(Constants.MSGHELP);
+			return;
+		}
 	}
 
 	public static String readFromFile(String fileName)
