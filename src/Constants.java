@@ -8,7 +8,7 @@ public final class Constants
     public static final String COUNTFILE = "c";
     public static final String DATASEPERATOR = " ,";
     public static final String MSGHELP = "Usage: java StudentList [Arguments] \n a - All Students\n r - Random Students\n c - Count Students \n + Adds New";
-    public static final String MSGSEARCH = "We found it!";
+    public static final String MSGSEARCH = "The Searched Item was Found in the Students List.";
     public static final String MSGSEARCHRESULT = " word(s) found ";
     public static final String MSGLOADSTART = "Loading data ...";
     public static final String MSGLOADEND ="Data Loaded.";

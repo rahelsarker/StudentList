@@ -35,16 +35,16 @@ public class StudentList
 		}
 		else if(args[0].contains(Constants.SEARCHFILE))
 		{
-			boolean done = false;
+			boolean searchedItemFound = false;
 			String searchData = args[0].substring(1);
 
-			for(int itemCounter = 0; itemCounter<fileContent.length && !done; itemCounter++)
+			for(int itemCounter = 0; itemCounter<fileContent.length && !searchedItemFound; itemCounter++)
 			{
 				String compareData = fileContent[itemCounter];
 				if(compareData.equals(searchData))
 				{
 					System.out.println(Constants.MSGSEARCH);
-					done=true;
+					searchedItemFound=true;
 				}
 			}
 
