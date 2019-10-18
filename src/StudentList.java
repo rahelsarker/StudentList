@@ -14,28 +14,16 @@ public class StudentList
 //		Check arguments
 		if(args[0].equals("a"))
 		{
-			System.out.println("Loading data ...");			
-			try
+			String readFileContents = readFromFile("students.txt");
+			String fileContent[] = readFileContents.split(",");
+			for(String content : fileContent)
 			{
-				BufferedReader fileStream = new BufferedReader(
-						new InputStreamReader(
-								new FileInputStream("students.txt")));
-				String readFileContents = fileStream.readLine();
-				String fileContent[] = readFileContents.split(",");
-				for(String content : fileContent)
-				{
-					System.out.println(content);
-				}
+				System.out.println(content);
 			}
-			catch (Exception error)
-			{
-
-			}
-			System.out.println("Data Loaded.");
 		}
 		else if(args[0].equals("r")) 
 		{
-			System.out.println("Loading data ...");			
+			System.out.println("Loading data ...");
 			try
 			{
 				BufferedReader fileStream = new BufferedReader(
@@ -130,5 +118,23 @@ public class StudentList
 			}
 			System.out.println("Data Loaded.");				
 		}
+	}
+
+	public static String readFromFile(String fileName)
+	{
+		System.out.println("Loading data ...");
+		String fileData = null;
+		try {
+			BufferedReader s = new BufferedReader(
+					new InputStreamReader(
+							new FileInputStream(fileName)));
+			fileData = s.readLine();
+		} catch (Exception e)
+		{
+
+		}
+
+		System.out.println("Data Loaded.");
+		return fileData;
 	}
 }
