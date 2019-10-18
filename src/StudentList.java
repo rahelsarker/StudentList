@@ -37,14 +37,13 @@ public class StudentList
 		{
 			boolean searchedItemFound = false;
 			String searchData = args[0].substring(1);
-
-			for(int itemCounter = 0; itemCounter<fileContent.length && !searchedItemFound; itemCounter++)
+			for(String searchElement : fileContent)
 			{
-				String compareData = fileContent[itemCounter];
-				if(compareData.equals(searchData))
+				if(searchData == searchElement)
 				{
 					System.out.println(Constants.MSGSEARCH);
 					searchedItemFound=true;
+					break;
 				}
 			}
 
