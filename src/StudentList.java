@@ -12,7 +12,7 @@ public class StudentList
 			return;
 		}
 //		Read From File
-		String readFileContents = readFromFile("students.txt");
+		String readFileContents = readFromFile(Constants.DATAFILENAME);
 		String fileContent[] = readFileContents.split(",");
 //		Check arguments
 		if(args[0].equals("a"))
